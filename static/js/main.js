@@ -19,7 +19,22 @@ $(function() {
         $("#result").text(res.result);
       },
       error: function(err){
-        console.log("error changing password");
+        console.log("error");
+      },
+    });
+  });
+  $('a#chiama_consegne').bind('click', function() {
+    var reset_data = {}
+    $.ajax({
+      type: "GET",
+      url: "http://localhost:5000/_consegne_vaccini",
+      data: reset_data,
+      success: function(res){
+        console.log(res["fornitore"]);
+        $("#consegne").text(res["fornitore"]);
+      },
+      error: function(err){
+        console.log("error");
       },
     });
   });
